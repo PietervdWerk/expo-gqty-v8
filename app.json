@@ -2,6 +2,7 @@
   "expo": {
     "name": "expo-gqty-v8",
     "slug": "expo-gqty-v8",
+    "scheme": "expo-gqty-v8",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "jsEngine": "jsc",
       "supportsTablet": true,
@@ -30,8 +29,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "react-native-v8"
-    ]
+    "plugins": ["react-native-v8", "expo-router"]
   }
 }

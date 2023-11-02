@@ -15,7 +15,7 @@ const queryFetcher: QueryFetcher = async function (
   fetchOptions
 ) {
   // Modify "/api/graphql" if needed
-  const response = await fetch("http://192.168.1.179:8000/graphql", {
+  const response = await fetch("https://koopjeskok-api.fly.dev/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
