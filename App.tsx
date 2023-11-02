@@ -3,21 +3,14 @@ import { useQuery } from './gqty'
 import { Suspense, useState } from 'react'
 
 export default function App() {
-  const [searchInput, setSearchInput] = useState(100)
-  const { allPeople } = useQuery({ suspense: false })
+  const [searchInput, setSearchInput] = useState('')
+  const { search } = useQuery()
 
   return (
-    <Suspense fallback={<Text>Loading...</Text>}>
       <ScrollView style={{ padding: 80 }}>
         <TextInput
           value={searchInput.toString()}
-          onChangeText={(e) => {
-            try {
-              const nmbr = parseInt(e)
-              if (isNaN(nmbr)) return
-              setSearchInput(nmbr)
-            } catch (e) {}
-          }}
+          onChangeText={setSearchInput}
           placeholder='Search for a person'
           style={{
             padding: 10,
@@ -27,10 +20,9 @@ export default function App() {
             borderWidth: 1,
           }}
         />
-        {allPeople({ first: searchInput })?.people?.map((person) => (
-          <Text key={person?.name}>{person?.name}</Text>
+        {search({ search: searchInput })?.map((product) => (
+          <Text style={{color: "red"}} key={product.id}>{product.name}</Text>
         ))}
       </ScrollView>
-    </Suspense>
   )
 }

@@ -15,7 +15,7 @@ const queryFetcher: QueryFetcher = async function (
   fetchOptions
 ) {
   // Modify "/api/graphql" if needed
-  const response = await fetch("https://swapi-graphql.netlify.app/.netlify/functions/index", {
+  const response = await fetch("http://192.168.1.179:8000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const queryFetcher: QueryFetcher = async function (
     ...fetchOptions,
   });
 
-  if (response.status >= 400) {
+  if (response.status > 200) {
     throw new GQtyError(
       `GraphQL endpoint responded with HTTP status ${response.status}.`
     );
